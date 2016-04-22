@@ -4,8 +4,10 @@
   "description": "Angular 1.5 Webpack seed with ES6 support ",
   "main": "index.js",
   "scripts": {
-    "start": "node node_modules/.bin/webpack-dev-server --hot --inline --progress --colors --content-base src",
-    "build": "rimraf dist && NODE_ENV=production webpack -p --config webpack.prod.config.js --progress"
+    "serve": "node node_modules/.bin/webpack-dev-server --hot --inline --progress --colors",
+    "build": "rimraf dist && NODE_ENV=production webpack -p --config webpack.prod.config.js --progress",
+    "serve:dist": "npm run build && node node_modules/.bin/webpack-dev-server --content-base ./dist",
+    "start": "npm run serve"
   },
   "keywords": [
     "angular",
@@ -23,6 +25,7 @@
     "css-loader": "^0.23.1",
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.8.5",
+    "html-webpack-plugin": "^2.16.0",
     "node-sass": "^3.4.2",
     "raw-loader": "^0.5.1",
     "rimraf": "^2.5.2",
