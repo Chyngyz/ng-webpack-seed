@@ -1,14 +1,13 @@
 import angular from 'angular'
 
-import homeCtrl from './home.controller'
-
 let homeModule = angular.module('app.home', [])
+
+import HomeConfig from './home.config'
+homeModule.config(HomeConfig)
 
 require('./home.scss')
 
-homeModule.component('homePage', {
-  controller: homeCtrl,
-  template: require('./home.html')
-})
+import homeCtrl from './home.controller'
+homeModule.controller('HomeCtrl', homeCtrl)
 
 export default homeModule

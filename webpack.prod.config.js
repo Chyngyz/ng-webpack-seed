@@ -23,7 +23,13 @@ module.exports = {
         test: /\.html$/, loader: 'raw', exclude: '/node_modules/'
       },
       {
-        test: /\.scss$/, loader: ExtractTextPlugin.extract('style', 'css?sourceMap!resolve-url!sass?sourceMap=true&sourceMapContents=true'), exclude: '/node_modules/'
+        test: /\.scss$/, loader: ExtractTextPlugin.extract(
+          'style',
+          'css?sourceMap!resolve-url!sass?sourceMap=true&sourceMapContents=true',
+          {
+            publicPath: '../../'
+          }
+        ), exclude: '/node_modules/'
       },
       {
         test: /\.(png|jpg|jpeg|gif|ico)$/, loader: 'file?name=assets/images/[hash].[ext]'
@@ -44,7 +50,7 @@ module.exports = {
       template: './index.html',
       inject: 'body'
     }),
-    new ExtractTextPlugin('[name].[hash].css'),
+    new ExtractTextPlugin('assets/styles/[name].[hash].css'),
     new CopyWebpackPlugin([{
       from: __dirname + '/src/assets',
       to: __dirname + '/dist/assets'

@@ -1,14 +1,13 @@
 import angular from 'angular'
 
-import aboutCtrl from './about.controller'
-
 let aboutModule = angular.module('app.about', []);
+
+import AboutConfig from './about.config'
+aboutModule.config(AboutConfig)
 
 require('./about.scss')
 
-aboutModule.component('aboutPage', {
-  controller: aboutCtrl,
-  template: require('./about.html')
-})
+import aboutCtrl from './about.controller'
+aboutModule.controller('AboutCtrl', aboutCtrl);
 
 export default aboutModule

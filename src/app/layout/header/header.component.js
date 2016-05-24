@@ -4,6 +4,8 @@ class AppHeaderCtrl {
   }
 }
 
+require('./header.scss')
+
 let AppHeader = {
   controller: AppHeaderCtrl,
   template: require('./header.html')

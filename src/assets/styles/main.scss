@@ -1,5 +1,11 @@
-// Global Vars
-@import 'base/vars';
+// Bootstrap Custom Vars
+@import 'base/bootstrap-vars';
+
+// Reset
+@import 'base/normalize';
+
+// Custom Bootstrap
+@import 'vendor/bootstrap';
 
 // Bourbon Mixins
 @import 'bourbon/bourbon';
@@ -8,15 +14,8 @@
 // Responsive Mixins
 @import 'utils/responsive';
 
-// Base styles - Bootstrap Custom css
-@import 'base/normalize';
-@import 'base/general';
-@import 'base/typography';
-@import 'base/grid';
-@import 'base/table';
-@import 'base/form';
-@import 'base/btns';
 
-
-// Vendor Styles
+// Ionicons
 @import 'vendor/ionicons';
+
+@import 'theme/flatly';
