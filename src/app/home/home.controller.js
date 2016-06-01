@@ -1,7 +1,7 @@
 class HomeCtrl {
   constructor() {
     'ngInject';
-    this.name = "HomeController"
+    this.name = "Home Ctrl"
   }
 
 }

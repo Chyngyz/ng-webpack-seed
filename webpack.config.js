@@ -2,15 +2,15 @@
 
 var DEV_SERVER_PORT = 3000;
 
+var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
-
 
 module.exports = {
   context: __dirname + '/src',
   entry: './app/app.js',
   output: {
-    publicPath: "http://localhost:" + DEV_SERVER_PORT + '/',
-    path: __dirname + '/src',
+    path: __dirname + '/dist',
+    publicPath: 'http://localhost:' + DEV_SERVER_PORT + '/',
     filename: 'bundle.js'
   },
   devtool: 'eval',
@@ -22,7 +22,9 @@ module.exports = {
     }
   },
   module: {
+    preLoaders: [],
     loaders: [
+
       {
         test: /\.js$/, loader: 'ng-annotate?add=true&map=false!babel', exclude: '/node_modules/'
       },
@@ -47,9 +49,15 @@ module.exports = {
     ]
   },
   plugins: [
+    new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
-      template: './index.html',
-      inject: 'body'
+      mobile: true,
+      template: './index.ejs',
+      filename: './index.html',
+      favicon: './favicon.ico',
+      inject: false,
+      devServer: 'http://localhost:' + DEV_SERVER_PORT,
+      appMountId: 'app',
     })
   ]
 };

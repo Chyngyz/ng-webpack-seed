@@ -4,7 +4,7 @@ import appConfig from './config/app.config'
 import appRun from './config/app.run'
 import appConstants from './config/app.constants'
 
-import 'angular-ui-router';
+import 'angular-ui-router'
 
 import './layout'
 import './home'
@@ -23,18 +23,13 @@ const requires = [
   'app.404'
 ]
 
-let appModule = angular.module('app', requires);
+let appModule = angular.module('app', requires)
 
 
 
 appModule.config(appConfig)
 appModule.run(appRun)
 appModule.constant('CONSTANTS', appConstants)
-
-
-// appModule.component('mainApp', {
-//   template:require('./layout/app-layout.html')
-// })
 
 
 // angular.bootstrap(document, ['app'], {

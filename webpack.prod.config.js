@@ -47,15 +47,19 @@ module.exports = {
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.UglifyJsPlugin(),
     new HtmlWebpackPlugin({
-      template: './index.html',
-      inject: 'body'
+      template: './index-prod.ejs',
+      inject: false,
+      googleAnalytics: {
+        trackingId: 'UA-XXXX-XX',
+        pageViewOnLoad: true
+      },
     }),
     new ExtractTextPlugin('assets/styles/[name].[hash].css'),
     new CopyWebpackPlugin([{
       from: __dirname + '/src/assets',
       to: __dirname + '/dist/assets'
     }], {
-      ignore: ['*.scss','fonts/**/*']
+      ignore: ['*.scss','fonts/**/*', 'images/**/*']
     })
 
   ]
